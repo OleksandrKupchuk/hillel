@@ -3,7 +3,7 @@
 <suite name="API">
     <test name="API">
         <classes>
-            <class name="pages.Page">
+            <class name="tests.Page">
                 <parameter name="name" value="Oleg"></parameter>
                 <parameter name="secondName" value="Olegovuch"></parameter>
                 <methods>
