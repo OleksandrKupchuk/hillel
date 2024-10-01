@@ -31,7 +31,6 @@ public class FramesTest extends TestSetup {
     @Test
     public void checkFrameByIndex(){
         getDriver().get("https://the-internet.herokuapp.com/iframe");
-
         getDriver().switchTo().frame(0);
         WebElement paragraph = getDriver().findElement(By.cssSelector("#tinymce p"));
         Assert.assertEquals(paragraph.getText(), "Your content goes here.");

@@ -28,7 +28,6 @@ public class BrowserFactory {
 
                 Map<String, Object> prefs = new HashMap<>();
                 prefs.put("profile.default_content_settings.popups", 0);
-//                prefs.put("download.default_directory", "D:\\Homework\\Hillel\\target\\files");
                 prefs.put("download.default_directory", Config.FILE_PATH);
 
                 ChromeOptions options = new ChromeOptions();
