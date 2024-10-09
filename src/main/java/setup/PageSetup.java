@@ -1,13 +1,13 @@
 package setup;
 
+import browserfactory.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class PageSetup {
-    protected WebDriver driver;
+    protected WebDriver driver = BrowserFactory.getInstance().getDriver();
 
     public PageSetup(){
-        this.driver = TestSetup.getDriver();
         PageFactory.initElements(driver, this);
     }
 }

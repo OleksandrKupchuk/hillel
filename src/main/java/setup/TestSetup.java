@@ -6,18 +6,19 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 public class TestSetup {
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    public static WebDriver getDriver(){
-        return driver.get();
+
+    public WebDriver getDriver(){
+        return BrowserFactory.getInstance().getDriver();
     }
 
     @BeforeMethod
     public void setup(){
-        driver.set(BrowserFactory.getDriver(Config.BROWSER_NAME));
+        BrowserFactory.getInstance().createWebDriver(Config.BROWSER_NAME);
     }
 
     @AfterMethod
     public void teardown(){
-        driver.get().quit();
+        BrowserFactory.getInstance().closeWebDriver();
+        BrowserFactory.getInstance().addVideoLink();
     }
 }
