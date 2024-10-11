@@ -7,7 +7,7 @@ import pages.orangehrm.pageobject.DashboardPage;
 import pages.orangehrm.pageobject.LoginPage;
 import setup.TestSetup;
 
-public class LoginTest extends TestSetup {
+public class LoginTest {
 
     @Test
     public void checkSuccessLogin(){
