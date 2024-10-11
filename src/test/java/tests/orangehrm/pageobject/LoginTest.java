@@ -7,18 +7,16 @@ import pages.orangehrm.pageobject.DashboardPage;
 import pages.orangehrm.pageobject.LoginPage;
 import setup.TestSetup;
 
-public class LoginTest {
+public class LoginTest extends TestSetup {
 
     @Test
     public void checkSuccessLogin(){
+        new LoginPage().open()
+                .setUsernameField("Admin")
+                .setPasswordField("admin123")
+                .clickSubmitButton();
 
-//        new LoginPage().open()
-//                .setUsernameField("Admin")
-//                .setPasswordField("admin123")
-//                .clickSubmitButton();
-//
-//        WebElement titleElement = new DashboardPage().getTitle();
-//        Assert.assertEquals(titleElement.getText(), "Dashboard");
-        System.out.println("It test run by jenkins");
+        WebElement titleElement = new DashboardPage().getTitle();
+        Assert.assertEquals(titleElement.getText(), "Dashboard");
     }
 }

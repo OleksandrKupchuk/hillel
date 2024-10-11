@@ -11,6 +11,7 @@ public class Config {
     private final static String fileConfigPath = "src/test/resources/config.properties";
     public static final String BROWSER_NAME = System.getProperty("browser.name", getProperty("browser.name"));
     public static final String FILE_PATH = System.getProperty("file.path", getProperty("file.path"));
+    public static final String URL_REMOTE = System.getProperty("url.remote", getProperty("url.remote"));
 
     private static String getProperty(String name){
         try{

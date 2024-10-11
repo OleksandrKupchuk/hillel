@@ -63,29 +63,29 @@ public class BrowserFactory {
     public void createChromeDriver(){
         WebDriverManager.chromedriver().setup();
 
-//        Map<String, Object> prefs = new HashMap<>();
-//        prefs.put("profile.default_content_settings.popups", 0);
-//        prefs.put("download.default_directory", Config.FILE_PATH);
-//
-//        ChromeOptions options = new ChromeOptions();
-//        options.setCapability("selenoid:options", new HashMap<String, Object>() {{
-//            put("sessionTimeout", "15m");
-//            put("videoFrameRate", 24);
-//            put("enableVideo", true);
-//        }});
-//        options.setExperimentalOption("prefs", prefs);
-//        options.setCapability("browserVersion", "127");
-//
-//        RemoteWebDriver remoteWebDriver = null;
-//        try {
-//            remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-//            driver.set(remoteWebDriver);
-//            sessionId.set(remoteWebDriver.getSessionId().toString());
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("profile.default_content_settings.popups", 0);
+        prefs.put("download.default_directory", Config.FILE_PATH);
 
-        driver.set(new ChromeDriver());
+        ChromeOptions options = new ChromeOptions();
+        options.setCapability("selenoid:options", new HashMap<String, Object>() {{
+            put("sessionTimeout", "15m");
+            put("videoFrameRate", 24);
+            put("enableVideo", true);
+        }});
+        options.setExperimentalOption("prefs", prefs);
+//        options.setCapability("browserVersion", "127");
+
+        RemoteWebDriver remoteWebDriver = null;
+        try {
+            remoteWebDriver = new RemoteWebDriver(new URL(Config.URL_REMOTE), options);
+            driver.set(remoteWebDriver);
+            sessionId.set(remoteWebDriver.getSessionId().toString());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+
+//        driver.set(new ChromeDriver());
         driver.get().manage().window().maximize();
         driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
