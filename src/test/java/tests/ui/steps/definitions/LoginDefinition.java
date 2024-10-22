@@ -1,6 +1,6 @@
 package tests.ui.steps.definitions;
 
-import ui.cucumber.DriverManager;
+import ui.browserfactory.BrowserFactory;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -8,8 +8,12 @@ import org.openqa.selenium.WebDriver;
 import ui.pages.theinternet.MainPage;
 
 public class LoginDefinition {
-    private WebDriver driver = DriverManager.getInstance().getDriver();
-    private MainPage mainPage = new MainPage();
+    private WebDriver driver = BrowserFactory.getInstance().getDriver();
+    private MainPage mainPage;
+
+    public LoginDefinition(){
+        mainPage = new MainPage();
+    }
 
     @When("[UI] User login with username")
     public void login(){

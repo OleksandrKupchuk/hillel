@@ -1,6 +1,7 @@
 package tests.ui.steps.hooks;
 
-import ui.cucumber.DriverManager;
+import ui.browserfactory.BrowserFactory;
+import ui.config.Config;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
@@ -8,11 +9,11 @@ public class Hook {
 
     @Before
     public void setup(){
-        DriverManager.getInstance().createWebDriver();
+        BrowserFactory.getInstance().createWebDriver(Config.BROWSER_NAME);
     }
 
     @After
     public void teardown(){
-        DriverManager.getInstance().getDriver().close();
+        BrowserFactory.getInstance().closeWebDriver();
     }
 }
