@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="UI" parallel="methods" thread-count="2">
-    <test name="Login">
+<suite name="UI" parallel="methods" thread-count="3">
+    <test name="Regression">
         <classes>
-            <class name="tests.ui.steps.TestCasesRunner"></class>
+            <class name="tests.patterns.PatternsTest"></class>
         </classes>
     </test>
 </suite>

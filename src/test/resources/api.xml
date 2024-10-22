@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="API">
-    <test name="API">
-        <classes>
-            <class name="tests.Page">
-                <parameter name="name" value="Oleg"></parameter>
-                <parameter name="secondName" value="Olegovuch"></parameter>
-                <methods>
-                    <include name="api"/>
-                </methods>
-            </class>
-        </classes>
+<suite name="api">
+    <test name="pet-movies">
+        <packages>
+            <package name="tests.api"></package>
+        </packages>
     </test>
 </suite>
