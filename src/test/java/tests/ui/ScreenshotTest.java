@@ -1,9 +1,9 @@
 package tests.ui;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.Test;
 import ui.setup.TestSetup;
 
@@ -21,7 +21,7 @@ public class ScreenshotTest extends TestSetup {
         File elementScreenshot = element.getScreenshotAs(OutputType.FILE);
 
         try {
-            FileHandler.copy(elementScreenshot, new File("target/newFolder/table.png"));//для того щоб автоматично створювалася папка використати FileUtils.copyFile(elementScreenshot, file);
+            FileUtils.copyFile(elementScreenshot, new File("target/newFolder/table.png"));
         } catch (IOException exception) {
             exception.printStackTrace();
         }

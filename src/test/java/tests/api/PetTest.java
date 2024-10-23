@@ -29,7 +29,7 @@ public class PetTest {
     public void creteAndDeletePetWithModel() {
         PetActions petActions = new PetActions();
         PetApi petApi = new PetApi();
-        Pet pet = petActions.createPet();
+        Pet pet = petActions.getGeneratedPet();
 
         Pet createdPet = petApi.createPet(pet).as(Pet.class);
 
@@ -41,15 +41,24 @@ public class PetTest {
 
     @Test
     public void updatePetWithBody() {
+        Faker faker = new Faker();
+        String petNameEdited = faker.animal().name();
+        String petStatusEdited = PetStatus.PENDING;
         PetActions petActions = new PetActions();
         PetApi petApi = new PetApi();
-        Pet pet = petActions.createPet();
+        Pet pet = petActions.getGeneratedPet();
+
+        Pet createdPet = petApi.createPet(pet).as(Pet.class);
+        createdPet.setName(petNameEdited);
+        createdPet.setStatus(petStatusEdited);
 
         Pet updatedPet = petApi.updatePet(pet).as(Pet.class);
 
-        Assert.assertEquals(pet.getId(), updatedPet.getId());
+        Assert.assertEquals(pet.getName(), updatedPet.getName());
+        Assert.assertEquals(pet.getStatus(), updatedPet.getStatus());
 
-        petApi.deletePet(pet.getId());
+        Response deletePet = petApi.deletePet(pet.getId());
+        Assert.assertEquals(200, deletePet.statusCode());
     }
 
     @Test
@@ -58,12 +67,15 @@ public class PetTest {
         String petNameEdited = faker.animal().name();
         PetActions petActions = new PetActions();
         PetApi petApi = new PetApi();
-        Pet pet = petActions.createPet();
+        Pet pet = petActions.getGeneratedPet();
+
+        petApi.createPet(pet).as(Pet.class);
 
         Pet updatedPet = petApi.updatePet(pet.getId(), petNameEdited, PetStatus.SOLD).as(Pet.class);
 
         Assert.assertEquals(pet.getId(), updatedPet.getId());
 
-        petApi.deletePet(pet.getId());
+        Response deletePet = petApi.deletePet(pet.getId());
+        Assert.assertEquals(200, deletePet.statusCode());
     }
 }

@@ -9,7 +9,7 @@ import com.github.javafaker.Faker;
 import java.util.ArrayList;
 
 public class PetActions {
-    public Pet createPet(){
+    public Pet getGeneratedPet(){
         Faker faker = new Faker();
         int petId = faker.number().numberBetween(0, 10000);
         String petName = faker.animal().name();

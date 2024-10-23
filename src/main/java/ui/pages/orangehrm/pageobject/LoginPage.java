@@ -17,13 +17,13 @@ public class LoginPage extends PageSetup {
 
     public LoginPage setUsernameField(String value){
         driver.findElement(usernameField).sendKeys(value);
-//        logger.log(value);
+        logger.log(value);
         return this;
     }
 
     public LoginPage setPasswordField(String value){
         driver.findElement(passwordField).sendKeys(value);
-//        logger.log(value);
+        logger.log(value);
         return this;
     }
 

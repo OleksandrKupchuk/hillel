@@ -16,7 +16,7 @@ import ui.wait.WaitHelper;
 public class Page {
 
     @Test(groups = {"smoke"})
-    public void one() throws InterruptedException {
+    public void login() {
         String expectedResult = "Secure Area";
 
         WebDriver driver = new ChromeDriver();

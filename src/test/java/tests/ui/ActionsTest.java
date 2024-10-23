@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.awt.*;
@@ -28,6 +29,9 @@ public class ActionsTest {
 
         actions.dragAndDrop(source, target).build().perform();
 
+        Assert.assertEquals(source.getText(), "B");
+        Assert.assertEquals(target.getText(), "A");
+
         driver.quit();
     }
 
@@ -48,6 +52,9 @@ public class ActionsTest {
                 .release()
                 .build()
                 .perform();
+
+        Assert.assertEquals(source.getText(), "B");
+        Assert.assertEquals(target.getText(), "A");
 
         driver.quit();
     }
